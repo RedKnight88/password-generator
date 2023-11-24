@@ -40,9 +40,39 @@ function generatePassword() {
   var holdingString = "";
 
   for (i = passLength; i > 0; i--) {
-    var newChar = null;//some crazy math equation to pick a new ascii number
+    var newChar = generateRandomCharacter(includeCaps, includeLower, includeNum, includeSpec);
+    console.log(newChar);
     holdingString = holdingString + newChar;
   }
   var pass = holdingString;
-  return pass;
+  return pass; // is this necessary?
+}
+
+function generateRandomCharacter(capsBool, lowerBool, numBool, specBool) {
+  
+  var optionsArray = [];
+
+  if (capsBool) {
+    var capsString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var capsChar = capsString[Math.floor(Math.random() * (capsString.length))];
+    optionsArray.push(capsChar);
+  }
+  if (lowerBool) {
+    var lowerString = "abcdefghijklmnopqrstuvwxyz";
+    var lowerChar = lowerString[Math.floor(Math.random() * (lowerString.length))];
+    optionsArray.push(lowerChar);
+  }
+  if (numBool) {
+    var numString = "0123456789";
+    var numChar = numString[Math.floor(Math.random() * (numString.length))];
+    optionsArray.push(numChar);
+  }
+  if (specBool) {
+    var specString = " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+    var specChar = specString[Math.floor(Math.random() * (specString.length))];
+    optionsArray.push(specChar);
+  }
+
+  generatedChar = optionsArray[Math.floor(Math.random() * (optionsArray.length))];
+  return generatedChar;
 }
