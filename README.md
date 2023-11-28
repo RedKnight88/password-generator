@@ -14,9 +14,9 @@ Provide a short description explaining the what, why, and how of your project. U
 
 The application is very user friendly. Clicking on the button brings up a series of questions about what the password should consist of, as in what kinds of characters to include. After, the user inputs how long the password should be. When all that is answered, the password with the desired criteria appears on the webpage for you to easily copy to clipboard.
 
-![Image of prompts with a question about characters to include in a new password.](assets\PassGenSS1.PNG)
+![Image of prompts with a question about characters to include in a new password.](./assets/PassGenSS1.PNG)
 
-![Image of a newly generated password.](assets\PassGenSS2.PNG)
+![Image of a newly generated password.](./assets/PassGenSS2.PNG)
 
 Provide instructions and examples for use. Include screenshots as needed.
 
