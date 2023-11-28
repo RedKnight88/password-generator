@@ -32,22 +32,32 @@ function generatePassword() {
     return "Error, please select a password length between 8 and 128 characters."
   }
 
-  // This begins the section for generating the password. The holding string will be
+  // This begins the section for generating the password. The pass string will be
   // concatenated with a newly randomized character, with influence from the above 
   // choices, for the length of the password specified to introduce into the for loop.
   // Without this initialization of an empty string, each time a new password would be
-  // generated, the old holding string would be included in the new password.
-  var holdingString = "";
+  // generated, the old pass string would be included in the new password.
+  var pass = "";
 
   for (i = passLength; i > 0; i--) {
     var newChar = generateRandomCharacter(includeCaps, includeLower, includeNum, includeSpec);
     console.log(newChar);
-    holdingString = holdingString + newChar;
+    pass = pass + newChar;
   }
-  var pass = holdingString;
-  return pass; // is this necessary?
+  return pass;
 }
 
+/* This function generates the character to add to the password in the above function.
+* The parameteres are the booleans input from the confirms from the above function,
+* which determine which kinds of characters are able to be chosen for the characters.
+* The function creates an array of potential characters to choose from, which is added to
+* through each conditional statement. Based on those parameters, a character randomly
+* chosen from a string of characters fitting that criteria will be placed within the
+* array of potential characters. When one is chosen from each potential input type and
+* placed in the options array, one is chosen at random from that options array and 
+* returned to be placed as the next character in the password. This means that each
+* character type has an equal opportunity to be placed in the password. 
+*/
 function generateRandomCharacter(capsBool, lowerBool, numBool, specBool) {
   
   var optionsArray = [];
